@@ -1,0 +1,94 @@
+
+.Back{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./image1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.main-div{
+    height: 93vh;
+    display: grid;
+    grid-template: 1fr 7fr/7fr  ;
+    grid-template-areas: 
+    'toDo SideBar'
+    'taskList SideBar' ;
+    gap: 20px;
+    width: 70%;
+    margin: auto;
+    padding-top: 40px;
+  }
+  .header {
+    background-color:#1f567374;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(31, 86, 115, 0.37);
+    backdrop-filter: blur(5px);
+    grid-area: toDo;
+    gap: 30px;
+  }
+    
+  .task__list {
+    background-color: rgba(37, 10, 212, 0.596);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(246, 231, 203, 0.37);
+    backdrop-filter: blur(5px);
+    grid-area: taskList;
+
+  }
+.add__btn{
+        background-color:black;
+        padding: 5px;
+        margin-top: 20px;
+        color: white;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: 20;
+        width: 10%;
+        margin: auto;
+
+  }
+  .modal__input{
+    background-color:black;
+        padding: 5px;
+        margin-top: 20px;
+        color: white;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: 15;
+        width: 20%;
+        margin: auto;
+  }
+.delet{
+  display: flex;
+}
+
+.far{
+  background-color: rgba(255, 0, 0, 0.466);
+  color: black;
+  font-size: 25px;
+  font-weight: 25px;
+  margin-left: 20px;
+}
+.task{
+  list-style-type: none;
+  font-size: 40px;
+  font-weight: 500;
+}
+.Uap__btn{
+  background-color: rgba(255, 0, 0, 0.466);
+  color: black;
+  font-size: 21.5px;
+  font-weight: 18px;
+  margin-left: 10px;
+}
+.Done{
+  text-decoration: line-through;
+}
+.done-btn{
+  background-color: rgba(255, 0, 0, 0.466);
+  color: black;
+  font-size: 23px;
+  font-weight: 18px;
+  margin-right: 10px;
+}
