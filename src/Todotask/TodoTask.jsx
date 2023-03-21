@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState ,  useEffect } from 'react';
+import { useDispatch, useSelector  } from 'react-redux';
 import { addTODO , deletTODO , uapdateTodo , doneTodo } from '../Actions/TodoActions';
 import './TodoTask.css';
 
@@ -7,13 +7,31 @@ import './TodoTask.css';
 const TodoTask = () => {
 
   const [newToDo, SetNewToDo] = useState('')
+  const [updateToDo, SetUpdateToDo] = useState('')
   const task = useSelector(state => state.TodoReducer)
+  const [filteredTasks, setFilteredTasks] = useState(task);
   const dispatch = useDispatch()
+  const [id,setID]=useState('')
 
 const [upInput , setUpInput] = useState(false)
-const toggleInput = () => {
+const toggleInput = (id,title) => {
   setUpInput(!upInput);
+  setID(id)
+  SetUpdateToDo(title)
 }
+const filterTasks = (filterType) => {
+  if (filterType === 'done') {
+    setFilteredTasks(task.filter((e) => e.isDone === true));
+  } else if (filterType === 'Notdone') {
+    setFilteredTasks(task.filter((e) => e.isDone === false));
+  } else {
+    setFilteredTasks(task);
+  }
+};
+useEffect(() => {
+  setFilteredTasks(task);
+}, [task]);
+
 
   
   return (
@@ -26,8 +44,8 @@ const toggleInput = () => {
           <h3>✍️ Add New TO DO</h3>
            {upInput? 
              <>
-             <input type="text"  className="modal__input" placeholder='Adding...' onChange={(e) => SetNewToDo(e.target.value)} ></input>
-             <button className='add__btn' onClick={() => dispatch(addTODO(newToDo))} >Up Date</button>
+              <input type="text"  className="modal__input" placeholder='updating...' value={updateToDo} onChange={(e) => SetUpdateToDo(e.target.value)} ></input>
+             <button className='add__btn' onClick={() => {dispatch(uapdateTodo(id,updateToDo));toggleInput()}} >Up Date</button>
              </>  :   <>
           <input type="text"  className="modal__input" placeholder='Adding...' onChange={(e) => SetNewToDo(e.target.value)} ></input>
           <button className='add__btn' onClick={() => dispatch(addTODO(newToDo))} >ADD</button>

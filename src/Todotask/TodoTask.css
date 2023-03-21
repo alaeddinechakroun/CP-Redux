@@ -92,3 +92,11 @@
   font-weight: 18px;
   margin-right: 10px;
 }
+.filter{
+  background-color:#1f567374;
+  padding: 20px;
+  height: 100vh;
+  position: absolute;
+  right: 60px;
+  border-radius: 10px;
+}

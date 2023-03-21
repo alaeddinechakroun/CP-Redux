@@ -15,10 +15,10 @@ export const deletTODO =( DeletTODO) => {
     }
     
 };
-export const uapdateTodo = (UapdataTODO) => {
+export const uapdateTodo = (id ,UapdataTODO) => {
     return{
         type : UAPDATE_TODO ,
-        payload : UapdataTODO
+        payload : {id,UapdataTODO}
     }
 };
 export const doneTodo = (id) => {

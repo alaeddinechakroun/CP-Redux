@@ -13,15 +13,15 @@ const TodoReducer = ( state = Add , action) => {
        
         case UAPDATE_TODO :
             let UAPDATETODO=state.map((e)=>{if (e.id === action.payload.id)
-                return{...e , title:action.payload.newtitle}
+                return{...e , title:action.payload.UapdataTODO}
                 else{
                     return e
                 }})
                 return UAPDATETODO
          
-        case DONE__TODO : 
-        return state.map(e=>{if(e.id===action.payload)return{...e , isDone : !e.isDone}
-        else return e})
+                case DONE__TODO : 
+                return state.map(e=>{if(e.id===action.payload)return {...e , isDone : !e.isDone}
+                else return e})
       
         default:
             return state
